@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelancy Online MVP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+  
+  /* --- ألوان Maron + أبيض --- */
+  body { font-family: 'Cairo', sans-serif; margin:0; background:#f5f0e6; min-height:100vh; }
+  header { background:#8B4513; color:white; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+  header h1 { margin:0; font-size:1.8rem; }
+  nav a { color:white; margin-left:1.2rem; text-decoration:none; font-weight:bold; cursor:pointer; transition:0.3s; }
+  nav a:hover { color:#f5f0e6; text-decoration:underline; }
+  
+  .container { max-width:1000px; margin:2rem auto; background:white; padding:2rem; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+  h2 { color:#333; margin-bottom:1rem; }
+  
+  input, textarea { width:100%; padding:0.6rem; margin:0.5rem 0 1rem; border-radius:8px; border:1px solid #ccc; font-size:1rem; }
+  
+  button { background:#8B4513; color:white; border:none; padding:0.6rem 1.2rem; cursor:pointer; border-radius:8px; font-weight:bold; transition:0.3s; }
+  button:hover { background:#5a2d0c; transform:scale(1.05);}
+  
+  .hidden { display:none; }
+  .card { border-radius:10px; padding:1rem; margin-bottom:1rem; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:0.3s;}
+  .card:hover { box-shadow:0 8px 20px rgba(0,0,0,0.2); transform:translateY(-2px);}
+  .profile-card { background:#f0e6de; }
+  .messages-container { max-height:300px; overflow-y:auto; margin-bottom:1rem;}
