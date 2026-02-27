@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelancy - My Account</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f6f3ef;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* Card */
+.container{
+  background:white;
+  width:500px;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:#5c2c14;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
+textarea{
+  resize:none;
+  height:80px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  background:#5c2c14;
+  color:white;
+  border:none;
+  border-radius:30px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#7a3b1d;
+  transform:scale(1.03);
+}
+
+.profile{
+  margin-top:25px;
+  background:#f1e8e2;
+  padding:20px;
+  border-radius:15px;
+  font-size:14px;
+}
+
+.profile h3{
+  margin-bottom:10px;
+  color:#5c2c14;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>My Account</h2>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="text" id="skills" placeholder="Skills (e.g. Web Design, Logo)">
+  <textarea id="bio" placeholder="Short Bio"></textarea>
+
+  <button onclick="saveData()">Save Information</button>
+
+  <div class="profile" id="profileData" style="display:none;">
+    <h3>Your Profile</h3>
+    <p><strong>Name:</strong> <span id="pName"></span></p>
+    <p><strong>Email:</strong> <span id="pEmail"></span></p>
+    <p><strong>Skills:</strong> <span id="pSkills"></span></p>
+    <p><strong>Bio:</strong> <span id="pBio"></span></p>
+  </div>
+</div>
+
+<script>
+function saveData(){
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const skills = document.getElementById("skills").value;
+  const bio = document.getElementById("bio").value;
+
+  const userData = {
+    name:name,
+    email:email,
+    skills:skills,
+    bio:bio
+  };
+
+  localStorage.setItem("freelancyUser", JSON.stringify(userData));
+  showData();
+}
+
+function showData(){
+  const data = JSON.parse(localStorage.getItem("freelancyUser"));
+  if(data){
+    document.getElementById("profileData").style.display="block";
+    document.getElementById("pName").innerText=data.name;
+    document.getElementById("pEmail").innerText=data.email;
+    document.getElementById("pSkills").innerText=data.skills;
+    document.getElementById("pBio").innerText=data.bio;
+  }
+}
+
+window.onload = showData;
+</script>
+
+</body>
+</html>
